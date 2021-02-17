@@ -362,10 +362,13 @@
                     <a href="#get-all-sequence-enrollments" class="toc-h2 toc-link" data-title="Get All Sequence Enrollments">Get All Sequence Enrollments</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-sequence-enrollments" class="toc-h2 toc-link" data-title="Get a Specific Sequence Enrollments">Get a Specific Sequence Enrollments</a>
+                    <a href="#get-a-specific-sequence-enrollment" class="toc-h2 toc-link" data-title="Get a Specific Sequence Enrollment">Get a Specific Sequence Enrollment</a>
                   </li>
                   <li>
                     <a href="#create-a-sequence-enrollment" class="toc-h2 toc-link" data-title="Create A Sequence Enrollment">Create A Sequence Enrollment</a>
+                  </li>
+                  <li>
+                    <a href="#remove-a-sequence-enrollment" class="toc-h2 toc-link" data-title="Remove a Sequence Enrollment">Remove a Sequence Enrollment</a>
                   </li>
               </ul>
           </li>
@@ -678,7 +681,7 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
 <p>This endpoint retrieves all sequence enrollments for an account.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://api.boast.io/v1/accounts/{account_id}/sequence_enrollments</code></p>
-<h2 id='get-a-specific-sequence-enrollments'>Get a Specific Sequence Enrollments</h2>
+<h2 id='get-a-specific-sequence-enrollment'>Get a Specific Sequence Enrollment</h2>
 <blockquote>
 <p>Request</p>
 </blockquote>
@@ -701,7 +704,7 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
 </span></code></pre></div>
 <p>This endpoint retrieves a single sequence enrollment.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://api.boast.io/v1/accounts/{account_id}/sequence_enrollments/{id}</code></p>
+<p><code>GET http://api.boast.io/v1/accounts/{account_id}/sequence_enrollments/{enrollment_id}</code></p>
 <h2 id='create-a-sequence-enrollment'>Create A Sequence Enrollment</h2>
 <blockquote>
 <p>Request</p>
@@ -746,6 +749,30 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
 <td><strong>Required</strong></td>
 </tr>
 </tbody></table>
+<h2 id='remove-a-sequence-enrollment'>Remove a Sequence Enrollment</h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>DELETE http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/sequence_enrollments/09f1bd66-84fe-454f-ac12-4dc323f656aa
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09f1bd66-84fe-454f-ac12-4dc323f656aa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61a06314-fa2e-4fc8-bbcf-f942075042cc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sequence_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"df51783e-c81c-460b-82dc-8c5a63b70e92"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"response_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ee456cc9-91a9-48c2-8f04-4e28d92788d2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"removed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-04T21:13:44.005Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-04T21:13:44.005Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint unenrolls a contact with an active enrollment from a sequence.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE http://api.boast.io/v1/accounts/{account_id}/sequence_enrollments/{enrollment_id}</code></p>
 
       </div>
       <div class="dark-box">
