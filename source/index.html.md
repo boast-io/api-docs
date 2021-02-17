@@ -1,13 +1,7 @@
 ---
-title: API Reference
-
-# must be one of https://git.io/vQNgJ
-# language_tabs:
-#   - shell: cURL
-#   - ruby
+title: Boast API Reference
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -23,5 +17,5 @@ includes:
 
 search: true
 
-code_clipboard: true
+code_clipboard: false
 ---
