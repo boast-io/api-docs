@@ -19,6 +19,7 @@ includes:
   - v1/responses
   - v1/sequences
   - v1/sequence_enrollments
+  - v1/webhook_subscriptions
 
 search: true
 
