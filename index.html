@@ -372,6 +372,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#webhook-subscriptions" class="toc-h1 toc-link" data-title="Webhook Subscriptions">Webhook Subscriptions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-webhook-subscriptions" class="toc-h2 toc-link" data-title="Get All Webhook Subscriptions">Get All Webhook Subscriptions</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-webhook-subscriptions" class="toc-h2 toc-link" data-title="Create A Webhook Subscriptions">Create A Webhook Subscriptions</a>
+                  </li>
+                  <li>
+                    <a href="#destroy-a-webhook-subscription" class="toc-h2 toc-link" data-title="Destroy a Webhook Subscription">Destroy a Webhook Subscription</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
@@ -382,11 +396,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Boast API! You can use our API to access Boast API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>Welcome to the Boast API! You can use our API to access Boast API endpoints.</p>
 <h1 id='accounts'>Accounts</h1><h2 id='get-all-accounts'>Get All Accounts</h2>
 <blockquote>
 <p>Request</p>
@@ -773,6 +783,134 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
 <p>This endpoint unenrolls a contact with an active enrollment from a sequence.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE http://api.boast.io/v1/accounts/{account_id}/sequence_enrollments/{enrollment_id}</code></p>
+<h1 id='webhook-subscriptions'>Webhook Subscriptions</h1><h2 id='get-all-webhook-subscriptions'>Get All Webhook Subscriptions</h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>GET http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/webhook_subscriptions
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb836066-c343-4b0a-8516-dbd802567b92"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status_changed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"form_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d15cd168-4001-4f7e-8e59-d66eb9524a37"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"to_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"published"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://your-site.example.com/hooks/4f29c329-8f19-419c-ad0a-519232d73ee8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1c2e2e9b-529a-4870-8781-311e83ab95a1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-28T13:16:39.917Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all webhook subscriptions for an account.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://api.boast.io/v1/accounts/{account_id}/webhook_subscriptions</code></p>
+<h2 id='create-a-webhook-subscriptions'>Create A Webhook Subscriptions</h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>POST http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/webhook_subscriptions
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status_changed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://your-site.example.com/hooks/4f29c329-8f19-419c-ad0a-519232d73ee8"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"form_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d15cd168-4001-4f7e-8e59-d66eb9524a37"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"to_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"published"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb836066-c343-4b0a-8516-dbd802567b92"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status_changed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"form_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d15cd168-4001-4f7e-8e59-d66eb9524a37"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"to_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"published"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://your-site.example.com/hooks/4f29c329-8f19-419c-ad0a-519232d73ee8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1c2e2e9b-529a-4870-8781-311e83ab95a1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-28T13:16:39.917Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint creates a webhook subscription for a specific event. Additional <code>filters</code> can be provided.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://api.boast.io/v1/accounts/{account_id}/webhook_subscriptions</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>event_name</code></td>
+<td><strong>Required</strong> <br /> See table of possible events below.</td>
+</tr>
+<tr>
+<td><code>target_url</code></td>
+<td><strong>Required</strong></td>
+</tr>
+<tr>
+<td><code>filters</code></td>
+<td>Optional object of filters checked when sending webhook requests. See table of supported filters by event below.</td>
+</tr>
+</tbody></table>
+<h3 id='webhook-events'>Webhook Events</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Supported Filters</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>response.accepted</code></td>
+<td><code>form_id</code></td>
+</tr>
+<tr>
+<td><code>response.status_change</code></td>
+<td><code>form_id</code>, <code>to_status</code></td>
+</tr>
+<tr>
+<td><code>response.destroyed</code></td>
+<td><code>form_id</code></td>
+</tr>
+<tr>
+<td><code>contact.created</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>contact.updated</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>contact.destroyed</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='destroy-a-webhook-subscription'>Destroy a Webhook Subscription</h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>DELETE http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/webhook_subscriptions/cb836066-c343-4b0a-8516-dbd802567b92
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>204 No Content
+</code></pre></div>
+<p>This endpoint destroys a webhook subscription.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE http://api.boast.io/v1/accounts/{account_id}/webhook_subscriptions/{webhook_subscription_id}</code></p>
 
       </div>
       <div class="dark-box">
