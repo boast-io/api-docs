@@ -7,6 +7,7 @@ toc_footers:
 includes:
   - v1/introduction
   - v1/authentication
+  - v1/interacting
   - v1/accounts
   - v1/contacts
   - v1/forms

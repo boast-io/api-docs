@@ -1,14 +1,10 @@
-# Authentication
+# Authentication (OAuth 2)
 
-Generic OAuth description
+The Boast API uses the [OAuth 2](https://www.oauth.com/) protocol for authentication, specifically the [Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/).
 
-## Application Authorization
+## Creating an Application
 
-The [authorization code flow](https://oauth.net/2/grant-types/authorization-code/) is used to authenticate users with the Boast API.
-
-### Creating an Application
-
-Email someone to get client id/secrets
+If you're building a custom integration with Boast and need OAuth access, please [contact us](https://boast.io/contact) to request access.
 
 ## Authorize
 
