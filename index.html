@@ -307,10 +307,10 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#authentication-oauth-2" class="toc-h1 toc-link" data-title="Authentication (OAuth 2)">Authentication (OAuth 2)</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#application-authorization" class="toc-h2 toc-link" data-title="Application Authorization">Application Authorization</a>
+                    <a href="#creating-an-application" class="toc-h2 toc-link" data-title="Creating an Application">Creating an Application</a>
                   </li>
                   <li>
                     <a href="#authorize" class="toc-h2 toc-link" data-title="Authorize">Authorize</a>
@@ -320,6 +320,23 @@
                   </li>
                   <li>
                     <a href="#refresh-token" class="toc-h2 toc-link" data-title="Refresh Token">Refresh Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#interacting-with-the-api" class="toc-h1 toc-link" data-title="Interacting with the API">Interacting with the API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#requests" class="toc-h2 toc-link" data-title="Requests">Requests</a>
+                  </li>
+                  <li>
+                    <a href="#responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+                  <li>
+                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
+                  <li>
+                    <a href="#pagination" class="toc-h2 toc-link" data-title="Pagination">Pagination</a>
                   </li>
               </ul>
           </li>
@@ -409,13 +426,15 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Boast API! You can use our API to access Boast API endpoints.</p>
-<h1 id='authentication'>Authentication</h1>
-<p>Generic OAuth description</p>
-<h2 id='application-authorization'>Application Authorization</h2>
-<p>The <a href="https://oauth.net/2/grant-types/authorization-code/">authorization code flow</a> is used to authenticate users with the Boast API.</p>
-<h3 id='creating-an-application'>Creating an Application</h3>
-<p>Email someone to get client id/secrets</p>
+<p>Welcome to the Boast API!</p>
+
+<p>You can use the the Boast API to automate tasks and trigger your own workflows to get data in or out of Boast and integrate with other popular services.</p>
+
+<p>At this time, the Boast API is only available to paid customers via one of our approved API partners such as <a href="https://zapier.com">Zapier</a>.</p>
+<h1 id='authentication-oauth-2'>Authentication (OAuth 2)</h1>
+<p>The Boast API uses the <a href="https://www.oauth.com/">OAuth 2</a> protocol for authentication, specifically the <a href="https://oauth.net/2/grant-types/authorization-code/">Authorization Code Grant</a>.</p>
+<h2 id='creating-an-application'>Creating an Application</h2>
+<p>If you&#39;re building a custom integration with Boast and need OAuth access, please <a href="https://boast.io/contact">contact us</a> to request access.</p>
 <h2 id='authorize'>Authorize</h2><div class="highlight"><pre class="highlight plaintext"><code>GET https://app.boast.io/oauth/authorize?client_id=mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc&amp;redirect_uri=https://oauthdebugger.com/debug&amp;scope=read write&amp;response_type=code
 </code></pre></div>
 <p><code>GET https://app.boast.io/oauth/authorize</code></p>
@@ -483,6 +502,160 @@
 </tr>
 <tr>
 <td>grant_type</td>
+</tr>
+</tbody></table>
+<h1 id='interacting-with-the-api'>Interacting with the API</h1>
+<p>Unless otherwise noted, all API requests and responses utilize the <code>JSON</code> data format.
+Some API endpoints may support URI parameters in the query string.</p>
+<h2 id='requests'>Requests</h2>
+<blockquote>
+<p>Example Request Headers</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Authorization: Bearer {token}
+Content-Type: application/json
+</code></pre></div>
+<blockquote>
+<p>Example Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Michael"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bluth"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Unless otherwise noted, all API requests should:</p>
+
+<ul>
+<li>include the <code>Authorization</code> header with a <code>Bearer</code> token value (see Authentication above)</li>
+<li>set the <code>Content-Type: application/json</code> header</li>
+<li>use use the <code>JSON</code> format for the request body</li>
+</ul>
+<h2 id='responses'>Responses</h2>
+<blockquote>
+<p>Example Response Headers</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Content-Type: application/json
+</code></pre></div>
+<blockquote>
+<p>Example Response Body (multiple objects returned)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Michael"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bluth"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lucille"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ball"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Example Response Body (single object returned)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Michael"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bluth"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Unless otherwise noted, all API responses use the <code>JSON</code> format.</p>
+
+<p>Data for the response is returned under a top-level <code>data</code> key, which is either an <code>array[]</code> of data objects, or a single data object.</p>
+<h2 id='errors'>Errors</h2><div class="highlight"><pre class="highlight plaintext"><code>HTTP/1.1 400 Bad Request
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A detailed error message"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bad_request"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Boast utilizes standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">HTTP Status Codes</a> to indicate the status of an API request.</p>
+
+<p>In general, anything in the <code>2xx</code> range should be considered successful, and anything in the <code>4xx</code> or <code>5xx</code> range should be considered an error.</p>
+
+<p>Some API endpoints will provide additional error objects inside a top-level <code>errors</code> key of the <code>JSON</code> response.</p>
+<h3 id='error-objects'>Error Objects</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>detail</code></td>
+<td>Human friendly description of the error</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>Internal error code, expressed as a string</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><em>Optional</em> HTTP status code related to the error</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><em>Optional</em> Object containing references to the source of the error</td>
+</tr>
+</tbody></table>
+<h2 id='pagination'>Pagination</h2>
+<blockquote>
+<p>Example Pagination Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Michael"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bluth"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lucille"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ball"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tony"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hawk"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Some API endpoints may return paginated results inside a <code>pagination</code> object underneath a top-level <code>meta</code> key in the response.</p>
+<h3 id='pagination-object'>Pagination Object</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>count</code></td>
+<td>Total count of items</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td><code>items</code></td>
+<td>Number of items per page</td>
+</tr>
+<tr>
+<td><code>pages</code></td>
+<td>Number of total pages</td>
 </tr>
 </tbody></table>
 <h1 id='accounts'>Accounts</h1><h2 id='get-all-accounts'>Get All Accounts</h2>
