@@ -307,6 +307,23 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#application-authorization" class="toc-h2 toc-link" data-title="Application Authorization">Application Authorization</a>
+                  </li>
+                  <li>
+                    <a href="#authorize" class="toc-h2 toc-link" data-title="Authorize">Authorize</a>
+                  </li>
+                  <li>
+                    <a href="#access-token" class="toc-h2 toc-link" data-title="Access Token">Access Token</a>
+                  </li>
+                  <li>
+                    <a href="#refresh-token" class="toc-h2 toc-link" data-title="Refresh Token">Refresh Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#accounts" class="toc-h1 toc-link" data-title="Accounts">Accounts</a>
               <ul class="toc-list-h2">
                   <li>
@@ -393,6 +410,81 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Boast API! You can use our API to access Boast API endpoints.</p>
+<h1 id='authentication'>Authentication</h1>
+<p>Generic OAuth description</p>
+<h2 id='application-authorization'>Application Authorization</h2>
+<p>The <a href="https://oauth.net/2/grant-types/authorization-code/">authorization code flow</a> is used to authenticate users with the Boast API.</p>
+<h3 id='creating-an-application'>Creating an Application</h3>
+<p>Email someone to get client id/secrets</p>
+<h2 id='authorize'>Authorize</h2><div class="highlight"><pre class="highlight plaintext"><code>GET https://app.boast.io/oauth/authorize?client_id=mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc&amp;redirect_uri=https://oauthdebugger.com/debug&amp;scope=read write&amp;response_type=code
+</code></pre></div>
+<p><code>GET https://app.boast.io/oauth/authorize</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+</tr>
+<tr>
+<td>scope</td>
+</tr>
+<tr>
+<td>response_type</td>
+</tr>
+</tbody></table>
+<h2 id='access-token'>Access Token</h2><div class="highlight"><pre class="highlight plaintext"><code>POST https://app.boast.io/oauth/token
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authorization_code"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nuQL_bzE9zQowsVTnfnN9mjBqNCwLrDDeoFoBkefdiw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{clientSecret}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oauthdebugger.com/debug"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><code>POST https://app.boast.io/oauth/token</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>grant_type</td>
+</tr>
+<tr>
+<td>code</td>
+</tr>
+<tr>
+<td>client_id</td>
+</tr>
+<tr>
+<td>client_secret</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+</tr>
+</tbody></table>
+<h2 id='refresh-token'>Refresh Token</h2>
+<p><code>POST https://app.boast.io/oauth/token</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refresh_token</td>
+</tr>
+<tr>
+<td>grant_type</td>
+</tr>
+</tbody></table>
 <h1 id='accounts'>Accounts</h1><h2 id='get-all-accounts'>Get All Accounts</h2>
 <blockquote>
 <p>Request</p>
