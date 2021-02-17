@@ -1,39 +1,67 @@
 # Authentication
 
-> To authorize, use this code:
+Generic OAuth description
 
-```ruby
-require 'kittn'
+## Application Authorization
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+The [authorization code flow](https://oauth.net/2/grant-types/authorization-code/) is used to authenticate users with the Boast API.
+
+### Creating an Application
+
+Email someone to get client id/secrets
+
+## Authorize
+
+```
+GET https://app.boast.io/oauth/authorize?client_id=mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc&redirect_uri=https://oauthdebugger.com/debug&scope=read write&response_type=code
 ```
 
-```python
-import kittn
+`GET https://app.boast.io/oauth/authorize`
 
-api = kittn.authorize('meowmeowmeow')
+### Query Parameters
+
+| Name          |
+| ------------- |
+| client_id     |
+| redirect_uri  |
+| scope         |
+| response_type |
+
+## Access Token
+
+```
+POST https://app.boast.io/oauth/token
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
+```json
+{
+  "grant_type": "authorization_code",
+  "code": "nuQL_bzE9zQowsVTnfnN9mjBqNCwLrDDeoFoBkefdiw",
+  "client_id": "mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc",
+  "client_secret": "{clientSecret}",
+  "redirect_uri": "https://oauthdebugger.com/debug"
+}
 ```
 
-```javascript
-const kittn = require("kittn");
+`POST https://app.boast.io/oauth/token`
 
-let api = kittn.authorize("meowmeowmeow");
-```
+### Parameters
 
-> Make sure to replace `meowmeowmeow` with your API key.
+| Name          |
+| ------------- |
+| grant_type    |
+| code          |
+| client_id     |
+| client_secret |
+| redirect_uri  |
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+## Refresh Token
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+`POST https://app.boast.io/oauth/token`
 
-`Authorization: meowmeowmeow`
+### Parameters
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+| Name          |
+| ------------- |
+| refresh_token |
+| grant_type    |
