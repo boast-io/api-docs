@@ -22,6 +22,10 @@ GET https://oauthdebugger.com/debug?code=axoIQaYBbm0ZEoj-sZEs-kslTxtR1hJzv4CXsEL
 
 `GET https://app.boast.io/oauth/authorize`
 
+<aside class="notice">
+Authentication end points use <code>app.boast.io</code> host while all other API end points use <code>api.boast.io</code> host.
+</aside>
+
 ### Query Parameters
 
 | Name          |
@@ -61,6 +65,10 @@ redirect_uri=https%3A%2F%2Foauthdebugger.com%2Fdebug
 
 `POST https://app.boast.io/oauth/token`
 
+<aside class="notice">
+Authentication end points use <code>app.boast.io</code> host while all other API end points use <code>api.boast.io</code> host.
+</aside>
+
 ### Parameters
 
 | Name          |                              |
@@ -99,6 +107,10 @@ client_secret=jsockwdoddKjDYUgxrPYGodyOxu3HjI5HaG0C-guDhE
 ```
 
 `POST https://app.boast.io/oauth/token`
+
+<aside class="notice">
+Authentication end points use <code>app.boast.io</code> host while all other API end points use <code>api.boast.io</code> host.
+</aside>
 
 ### Parameters
 
