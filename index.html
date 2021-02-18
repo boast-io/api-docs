@@ -435,7 +435,16 @@
 <p>The Boast API uses the <a href="https://www.oauth.com/">OAuth 2</a> protocol for authentication, specifically the <a href="https://oauth.net/2/grant-types/authorization-code/">Authorization Code Grant</a>.</p>
 <h2 id='creating-an-application'>Creating an Application</h2>
 <p>If you&#39;re building a custom integration with Boast and need OAuth access, please <a href="https://boast.io/contact">contact us</a> to request access.</p>
-<h2 id='authorize'>Authorize</h2><div class="highlight"><pre class="highlight plaintext"><code>GET https://app.boast.io/oauth/authorize?client_id=mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc&amp;redirect_uri=https://oauthdebugger.com/debug&amp;scope=read write&amp;response_type=code
+<h2 id='authorize'>Authorize</h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>GET https://app.boast.io/oauth/authorize?client_id=mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc&amp;redirect_uri=https://oauthdebugger.com/debug&amp;scope=read write&amp;response_type=code
+</code></pre></div>
+<blockquote>
+<p>Redirect</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>GET https://oauthdebugger.com/debug?code=axoIQaYBbm0ZEoj-sZEs-kslTxtR1hJzv4CXsEL3Z_E
 </code></pre></div>
 <p><code>GET https://app.boast.io/oauth/authorize</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -457,13 +466,29 @@
 <td>response_type</td>
 </tr>
 </tbody></table>
-<h2 id='access-token'>Access Token</h2><div class="highlight"><pre class="highlight plaintext"><code>POST https://app.boast.io/oauth/token
-</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authorization_code"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nuQL_bzE9zQowsVTnfnN9mjBqNCwLrDDeoFoBkefdiw"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{clientSecret}"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oauthdebugger.com/debug"</span><span class="w">
+<h2 id='access-token'>Access Token</h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>&gt; POST https://app.boast.io/oauth/token
+&gt; content-type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&amp;
+code=axoIQaYBbm0ZEoj-sZEs-kslTxtR1hJzv4CXsEL3Z_E&amp;
+client_id=mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc&amp;
+client_secret=jsockwdoddKjDYUgxrPYGodyOxu3HjI5HaG0C-guDhE&amp;
+redirect_uri=https%3A%2F%2Foauthdebugger.com%2Fdebug
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MNgOvnS_wcg4h-b5WxTAuof6-K4LgfW9G45543hzmaI"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">7200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9kSGp7uYsgNIZQAdxN_HJ8Sto_9ASh4-uawGIWZ9Z4"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read write"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1613653883</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><code>POST https://app.boast.io/oauth/token</code></p>
@@ -471,37 +496,77 @@
 <table><thead>
 <tr>
 <th>Name</th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>grant_type</td>
+<td><code>authorization_code</code></td>
 </tr>
 <tr>
 <td>code</td>
+<td>Code from authorize redirect</td>
 </tr>
 <tr>
 <td>client_id</td>
+<td></td>
 </tr>
 <tr>
 <td>client_secret</td>
+<td></td>
 </tr>
 <tr>
 <td>redirect_uri</td>
+<td></td>
 </tr>
 </tbody></table>
 <h2 id='refresh-token'>Refresh Token</h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>&gt; POST https://app.boast.io/oauth/token
+&gt; content-type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&amp;
+refresh_token=a9kSGp7uYsgNIZQAdxN_HJ8Sto_9ASh4-uawGIWZ9Z4&amp;
+client_id=mBUYVNhbzejU9mi4faMzwFE27XunvbKfpf-1jLJfylc&amp;
+client_secret=jsockwdoddKjDYUgxrPYGodyOxu3HjI5HaG0C-guDhE
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YO1JwYRXyOdT4cOxCn5rWLXnXNRDbcRxfXxcszUGMzE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">7200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fKtyDtzyChjuNZ3hoFvSpD1wGpZpKeUkFcLe-tR6zA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read write"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1613654860</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><code>POST https://app.boast.io/oauth/token</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Name</th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>refresh_token</td>
+<td>grant_type</td>
+<td><code>refresh_token</code></td>
 </tr>
 <tr>
-<td>grant_type</td>
+<td>refresh_token</td>
+<td>Token from last access token</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td></td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td></td>
 </tr>
 </tbody></table>
 <h1 id='interacting-with-the-api'>Interacting with the API</h1>
