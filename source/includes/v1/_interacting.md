@@ -25,7 +25,7 @@ Unless otherwise noted, all API requests should:
 
 - include the `Authorization` header with a `Bearer` token value (see Authentication above)
 - set the `Content-Type: application/json` header
-- use use the `JSON` format for the request body
+- use the `JSON` format for the request body
 
 ## Responses
 
