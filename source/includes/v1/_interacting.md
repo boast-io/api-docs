@@ -131,7 +131,7 @@ Some API endpoints will provide additional error objects inside a top-level `err
 }
 ```
 
-Some API endpoints may return paginated results inside a `pagination` object underneath a top-level `meta` key in the response.
+Some API endpoints may return paginated results inside a `pagination` object underneath a top-level `meta` key in the response. The current page is set with the `page` query parameter.
 
 ### Pagination Object
 
