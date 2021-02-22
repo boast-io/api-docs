@@ -32,8 +32,8 @@ GET http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/respons
       "mobile_phone": "555-555-5555",
       "company": "Bluth Company",
       "job_title": "President",
-      "photo": "https://assets.boast.io/app/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/responses/d33c2315-f15f-4679-8ecb-e1f546f33eb0/photos/e744b1a8-3b0f-4cf9-9583-d51dec75c1fa/original-779db8f190a1901824bd32f80b376d47.png",
-      "video": "https://assets.boast.io/app/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/responses/d33c2315-f15f-4679-8ecb-e1f546f33eb0/videos/c4e033de-ac70-4f4e-b4ef-598dc152697a/original-20fde3bc63182beddb0e29db7967439b.webm",
+      "photo_url": "https://assets.boast.io/app/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/responses/d33c2315-f15f-4679-8ecb-e1f546f33eb0/photos/e744b1a8-3b0f-4cf9-9583-d51dec75c1fa/original-779db8f190a1901824bd32f80b376d47.png",
+      "video_url": "https://assets.boast.io/app/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/responses/d33c2315-f15f-4679-8ecb-e1f546f33eb0/videos/c4e033de-ac70-4f4e-b4ef-598dc152697a/original-20fde3bc63182beddb0e29db7967439b.webm",
       "additional_fields": {
         "my_custom_field": "Hello World!"
       },
