@@ -32,8 +32,17 @@ GET http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/respons
       "mobile_phone": "555-555-5555",
       "company": "Bluth Company",
       "job_title": "President",
-      "photo_url": "https://assets.boast.io/app/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/responses/d33c2315-f15f-4679-8ecb-e1f546f33eb0/photos/e744b1a8-3b0f-4cf9-9583-d51dec75c1fa/original-779db8f190a1901824bd32f80b376d47.png",
-      "video_url": "https://assets.boast.io/app/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/responses/d33c2315-f15f-4679-8ecb-e1f546f33eb0/videos/c4e033de-ac70-4f4e-b4ef-598dc152697a/original-20fde3bc63182beddb0e29db7967439b.webm",
+      "photo": {
+        "original_url": "https://assets.boast.io/app/accounts/6713be5b-dc41-4af3-890a-9a67f2a4a06f/responses/b7e9178d-acf3-4d29-afe0-b53624a02392/photos/6bd306ed-ec26-49fb-9bca-bcc3f216b0fe/original-184fb12980f96efb2ff88ea8b67a7a42.jpg",
+        "large_url": "https://assets.boast.io/app/accounts/6713be5b-dc41-4af3-890a-9a67f2a4a06f/responses/b7e9178d-acf3-4d29-afe0-b53624a02392/photos/6bd306ed-ec26-49fb-9bca-bcc3f216b0fe/large-c5cba0f17e3f208062e164a28ff46163.jpg",
+        "medium_url": "https://assets.boast.io/app/accounts/6713be5b-dc41-4af3-890a-9a67f2a4a06f/responses/b7e9178d-acf3-4d29-afe0-b53624a02392/photos/6bd306ed-ec26-49fb-9bca-bcc3f216b0fe/medium-d0199a3f7d97bd6bc007a949c8709148.jpg"
+      },
+      "video": {
+        "original_url": "https://assets.boast.io/app/accounts/6713be5b-dc41-4af3-890a-9a67f2a4a06f/responses/4836ed10-7f81-4c37-9157-1979fdcc3d71/videos/95767ab2-b038-4d14-ad48-321b888474d3/original-5968437c107cca65646ec23ea7d35741.webm",
+        "mp4_url": "https://assets.boast.io/app/accounts/6713be5b-dc41-4af3-890a-9a67f2a4a06f/responses/4836ed10-7f81-4c37-9157-1979fdcc3d71/videos/95767ab2-b038-4d14-ad48-321b888474d3/video_mp4-d0199a3f7d97bd6bc007a949c8709148.mp4",
+        "webm_url": "https://assets.boast.io/app/accounts/6713be5b-dc41-4af3-890a-9a67f2a4a06f/responses/4836ed10-7f81-4c37-9157-1979fdcc3d71/videos/95767ab2-b038-4d14-ad48-321b888474d3/video_webm-862dafe4680cf32d6c9b7d6af04d810a.webm",
+        "thumbnail_url": "https://assets.boast.io/app/accounts/6713be5b-dc41-4af3-890a-9a67f2a4a06f/responses/4836ed10-7f81-4c37-9157-1979fdcc3d71/videos/95767ab2-b038-4d14-ad48-321b888474d3/thumbnails-d5a91ed5d66fd98ec430fbff7b01c534-1.jpg"
+      },
       "additional_fields": {
         "my_custom_field": "Hello World!"
       },
