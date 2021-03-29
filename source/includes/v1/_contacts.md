@@ -27,7 +27,11 @@ GET http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/contact
       "staff_id": "1ec592b5-3d92-43fe-8b3a-3e1f9075fd5e",
       "source": "response",
       "created_at": "2021-02-10T16:54:23.805Z",
-      "updated_at": "2021-02-10T16:54:23.805Z"
+      "updated_at": "2021-02-10T16:54:23.805Z",
+      "links": {
+        "detail": "https://demo.boast.io/contacts/b94f8eb4-6dea-4c25-932d-e25b5954c655",
+        "edit": "https://demo.boast.io/contacts/b94f8eb4-6dea-4c25-932d-e25b5954c655/edit"
+      }
     }
   ]
 }
@@ -79,7 +83,11 @@ POST http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/contac
     "staff_id": null,
     "source": "api",
     "created_at": "2021-02-10T16:54:23.805Z",
-    "updated_at": "2021-02-10T16:54:23.805Z"
+    "updated_at": "2021-02-10T16:54:23.805Z",
+    "links": {
+      "detail": "https://demo.boast.io/contacts/b94f8eb4-6dea-4c25-932d-e25b5954c655",
+      "edit": "https://demo.boast.io/contacts/b94f8eb4-6dea-4c25-932d-e25b5954c655/edit"
+    }
   }
 }
 ```
