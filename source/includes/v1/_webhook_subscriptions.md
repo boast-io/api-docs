@@ -15,7 +15,7 @@ GET http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/webhook
   "data": [
     {
       "id": "cb836066-c343-4b0a-8516-dbd802567b92",
-      "event_name": "response.status_changed",
+      "event_name": "response.status.changed",
       "filters": {
         "form_id": "d15cd168-4001-4f7e-8e59-d66eb9524a37",
         "to_status": "published"
@@ -44,7 +44,7 @@ POST http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/webhoo
 
 ```json
 {
-  "event_name": "response.status_changed",
+  "event_name": "response.status.changed",
   "target_url": "https://your-site.example.com/hooks/4f29c329-8f19-419c-ad0a-519232d73ee8",
   "filters": {
     "form_id": "d15cd168-4001-4f7e-8e59-d66eb9524a37",
@@ -59,10 +59,10 @@ POST http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/webhoo
 {
   "data": {
     "id": "cb836066-c343-4b0a-8516-dbd802567b92",
-    "event_name": "response.status_changed",
+    "event_name": "response.status.changed",
     "filters": {
       "form_id": "d15cd168-4001-4f7e-8e59-d66eb9524a37",
-      "to_status": "published"
+      "status": "published"
     },
     "target_url": "https://your-site.example.com/hooks/4f29c329-8f19-419c-ad0a-519232d73ee8",
     "user_id": "1c2e2e9b-529a-4870-8781-311e83ab95a1",
@@ -87,15 +87,15 @@ This endpoint creates a webhook subscription for a specific event. Additional `f
 
 ### Webhook Events
 
-| Name                     | Supported Filters   |
-| ------------------------ | ------------------- |
-| `response.available`     | `form_id`           |
-| `response.status_change` | `form_id`, `status` |
-| `response.published`     | `form_id`           |
-| `response.destroyed`     | `form_id`           |
-| `contact.created`        |                     |
-| `contact.updated`        |                     |
-| `contact.destroyed`      |                     |
+| Name                      | Supported Filters   |
+| ------------------------- | ------------------- |
+| `response.available`      | `form_id`           |
+| `response.status.changed` | `form_id`, `status` |
+| `response.published`      | `form_id`           |
+| `response.destroyed`      | `form_id`           |
+| `contact.created`         |                     |
+| `contact.updated`         |                     |
+| `contact.destroyed`       |                     |
 
 ## Destroy a Webhook Subscription
 
