@@ -87,15 +87,15 @@ This endpoint creates a webhook subscription for a specific event. Additional `f
 
 ### Webhook Events
 
-| Name                     | Supported Filters |
-| ------------------------ | ----------------- |
-| `response.available`     | `form_id`         |
-| `response.status_change` | `form_id`         |
-| `response.published`     | `form_id`         |
-| `response.destroyed`     | `form_id`         |
-| `contact.created`        |                   |
-| `contact.updated`        |                   |
-| `contact.destroyed`      |                   |
+| Name                     | Supported Filters   |
+| ------------------------ | ------------------- |
+| `response.available`     | `form_id`           |
+| `response.status_change` | `form_id`, `status` |
+| `response.published`     | `form_id`           |
+| `response.destroyed`     | `form_id`           |
+| `contact.created`        |                     |
+| `contact.updated`        |                     |
+| `contact.destroyed`      |                     |
 
 ## Destroy a Webhook Subscription
 
