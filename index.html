@@ -1165,7 +1165,7 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb836066-c343-4b0a-8516-dbd802567b92"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status_changed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status.changed"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"form_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d15cd168-4001-4f7e-8e59-d66eb9524a37"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"to_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"published"</span><span class="w">
@@ -1186,7 +1186,7 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>POST http://api.boast.io/v1/accounts/7a2f1f8c-7771-47e2-8dbd-332b301028a8/webhook_subscriptions
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status_changed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status.changed"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://your-site.example.com/hooks/4f29c329-8f19-419c-ad0a-519232d73ee8"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"form_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d15cd168-4001-4f7e-8e59-d66eb9524a37"</span><span class="p">,</span><span class="w">
@@ -1200,10 +1200,10 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb836066-c343-4b0a-8516-dbd802567b92"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status_changed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response.status.changed"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"form_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d15cd168-4001-4f7e-8e59-d66eb9524a37"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"to_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"published"</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"published"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://your-site.example.com/hooks/4f29c329-8f19-419c-ad0a-519232d73ee8"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1c2e2e9b-529a-4870-8781-311e83ab95a1"</span><span class="p">,</span><span class="w">
@@ -1246,7 +1246,7 @@ Either <code>email</code> or <code>mobile_phone</code> is required to create a c
 <td><code>form_id</code></td>
 </tr>
 <tr>
-<td><code>response.status_change</code></td>
+<td><code>response.status.changed</code></td>
 <td><code>form_id</code>, <code>status</code></td>
 </tr>
 <tr>
